@@ -1,3 +1,133 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import "swiper/css";
+
+/* Dark mode selector */
+@custom-variant dark (&:is(.dark *));
+
+/* =========================
+   THEME TOKENS (DESIGN SYSTEM)
+========================= */
+@theme {
+  /* Font */
+  --font-outfit: Outfit, sans-serif;
+
+  /* Typography */
+  --text-theme-xs: 12px;
+  --text-theme-xs--line-height: 18px;
+
+  --text-theme-sm: 14px;
+  --text-theme-sm--line-height: 20px;
+
+  --text-theme-xl: 20px;
+  --text-theme-xl--line-height: 30px;
+
+  /* Brand Colors */
+  --color-brand-50: #ecf3ff;
+  --color-brand-400: #7592ff;
+  --color-brand-500: #465fff;
+  --color-brand-600: #3641f5;
+
+  /* Gray Scale */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f2f4f7;
+  --color-gray-200: #e4e7ec;
+  --color-gray-500: #667085;
+  --color-gray-700: #344054;
+  --color-gray-900: #101828;
+
+  /* Status */
+  --color-success-500: #12b76a;
+  --color-error-500: #f04438;
+
+  /* Shadows */
+  --shadow-theme-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-theme-md: 0 4px 8px rgba(16, 24, 40, 0.1);
+
+  /* Z-index */
+  --z-index-1: 1;
+  --z-index-999: 999;
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  body {
+    @apply font-outfit bg-gray-50 text-gray-900 relative;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* =========================
+   GLOBAL UTILITIES
+========================= */
+
+/* Layout */
+@utility app-layout {
+  @apply flex h-screen overflow-hidden;
+}
+
+@utility app-main {
+  @apply flex flex-col flex-1 transition-all duration-300;
+}
+
+@utility app-content {
+  @apply p-6 overflow-y-auto;
+}
+
+/* Cards */
+@utility card {
+  @apply bg-white rounded-xl shadow-theme-sm p-6;
+}
+
+@utility card-title {
+  @apply text-gray-700 text-theme-xl;
+}
+
+@utility card-value {
+  @apply text-2xl font-bold;
+}
+
+/* =========================
+   MENU SYSTEM
+========================= */
+@utility menu-item {
+  @apply flex items-center gap-3 px-3 py-2 rounded-lg
+         font-medium text-theme-sm;
+}
+
+@utility menu-item-active {
+  @apply bg-brand-50 text-brand-500
+         dark:bg-brand-500/10 dark:text-brand-400;
+}
+
+@utility menu-item-inactive {
+  @apply text-gray-700 hover:bg-gray-100
+         dark:text-gray-300 dark:hover:bg-white/5;
+}
+
+@utility menu-item-icon {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+@utility menu-item-icon-active {
+  @apply text-brand-500 dark:text-brand-400;
+}
+
+@utility menu-dropdown-item {
+  @apply flex items-center gap-3 px-3 py-2 rounded-lg
+         text-theme-sm font-medium;
+}

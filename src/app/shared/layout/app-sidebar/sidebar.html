@@ -1,0 +1,23 @@
+<aside class="fixed h-full bg-white border-r transition-all duration-300" [class.w-64]="open" [class.w-20]="!open">
+  <div class="p-4 font-bold text-brand-500">
+    {{ open ? 'TailAdmin' : 'TA' }}
+  </div>
+
+  <nav class="p-2 space-y-1">
+    <a class="menu-item menu-item-active">
+      <span class="menu-item-icon-active">📊</span>
+      @if (open) {
+      <span>Dashboard</span>
+      }
+
+    </a>
+
+    <a class="menu-item menu-item-inactive">
+      <span class="menu-item-icon">🛒</span>
+      @if (open) {
+      <span>Ecommerce</span>
+      }
+
+    </a>
+  </nav>
+</aside>

@@ -1,0 +1,14 @@
+<div class="app-layout">
+  <app-sidebar [open]="sidebarOpen()" />
+
+  <div
+    class="app-main"
+    [class.ml-64]="sidebarOpen()"
+    [class.ml-20]="!sidebarOpen()"
+  >
+    <app-header (toggle)="toggleSidebar()" />
+    <main class="app-content">
+      <router-outlet />
+    </main>
+  </div>
+</div>
