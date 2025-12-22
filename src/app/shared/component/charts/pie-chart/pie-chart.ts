@@ -29,10 +29,12 @@ export class PieChartComponent {
   @Input() labels: string[] = [];
 
   chartOptions: ChartOptions = {
-    series: [],
+    series:[],
     
     chart: {
-      type: 'donut'
+      type: 'donut',
+      width: 400,
+      height:400
     },
     labels: [],
     legend: {
@@ -41,10 +43,22 @@ export class PieChartComponent {
       horizontalAlign: 'center',
       floating: false
     },
-    responsive: []
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 400
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    ]
   };
   
-  
+ 
 
   ngOnChanges() {
     this.chartOptions.series = this.series;

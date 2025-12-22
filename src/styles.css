@@ -257,6 +257,9 @@
 @utility card-data{
   @apply text-gray-600 font-semibold;
 }
+@utility card-heading{
+  @apply text-center font-semibold text-gray-700 mb-2 mt-8;
+}
 
 @utility menu-item {
   @apply flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer
@@ -315,3 +318,12 @@
 @utility submenu-active {
   @apply bg-blue-50 text-blue-600;
 }
+
+@utility chart-alignment{
+  @apply grid md:grid-cols-1 xl:grid-cols-3 gap-6 flex-3;
+}
+
+@utility card-alignemnt{
+  @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6;
+}
+

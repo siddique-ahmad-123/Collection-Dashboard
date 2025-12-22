@@ -13,6 +13,7 @@ import { DonutChartComponent } from "../../shared/component/charts/donut-chart/d
 })
 export class DashboardComponent {
   productSeries = [12.8, 38.8, 10.6, 37.7];
+  classificationSeries=[12,11,49,29];
 
   productLabels = [
     'Home Loan',
@@ -20,7 +21,21 @@ export class DashboardComponent {
     'Auto Loan',
     'Credit Card'
   ];
+
+  collectionSeries=[72.9, 27.1];
+  collectionLabels=['Pending', 'Collected'];
+  collectionColors=['#d46a6a', '#8e4b6d'];
+
+  performanceSeries = [42, 58];
+  performanceLabels = ['Increased', 'Decreased'];
+  performanceColors = ['#1f7a1f', '#d61a1a'];
+
+  scoreSeries=[30, 44, 26];
+  scoreLabels=['>700', '500-700', '<500'];
+  scoreColors=['#1f7a1f', '#43b3e6', '#d61a1a'];
+
   cards=[
+
     {
       title:'Home Loan',
       casesDone: 1123,
