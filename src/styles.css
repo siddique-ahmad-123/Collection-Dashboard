@@ -241,7 +241,7 @@
 
 /* Cards */
 @utility card {
-  @apply bg-white rounded-xl shadow-theme-sm p-6;
+  @apply bg-white  shadow-theme-sm p-6;
 }
 
 @utility card-title {
