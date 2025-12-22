@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, input, ViewChild } from '@angular/core';
 import { NgApexchartsModule, ChartComponent } from 'ng-apexcharts';
 import {
   ApexNonAxisChartSeries,
@@ -18,6 +18,7 @@ export type ChartOptions = {
   stroke: ApexStroke;
   colors: string[];
   responsive: ApexResponsive[];
+  
 };
 
 @Component({
@@ -29,17 +30,22 @@ export type ChartOptions = {
 export class DonutChartComponent {
   @ViewChild('chart') chart!: ChartComponent;
 
+  @Input() series:number[]=[];
+  @Input() labels:string[]=[];
+  @Input() colors:string[]=[];
+
+
   chartOptions: ChartOptions = {
-    series: [72.9, 27.1], // Pending, Collected
+    series:[],
     chart: {
       type: 'pie',
-      width: 260,
+      width: 360,
       toolbar: {
         show: false
       }
     },
-    labels: ['Pending', 'Collected'],
-    colors: ['#d46a6a', '#8e4b6d'], // matches screenshot
+    labels:[],
+    colors: [],
     stroke: {
       width: 2,
       colors: ['#ffffff']
@@ -75,4 +81,10 @@ export class DonutChartComponent {
       }
     ]
   };
+
+  ngOnChanges(): void{
+    this.chartOptions.series = this.series;
+    this.chartOptions.labels = this.labels;
+    this.chartOptions.colors = this.colors;
+  }
 }
