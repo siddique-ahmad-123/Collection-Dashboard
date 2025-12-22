@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @import "swiper/css";
 
+
 /* Dark mode selector */
 @custom-variant dark (&:is(.dark *));
 
@@ -244,11 +245,17 @@
 }
 
 @utility card-title {
-  @apply text-gray-700 text-theme-xl;
+  @apply text-lg font-semibold text-gray-700 leading-tight;
 }
 
 @utility card-value {
-  @apply text-2xl font-bold;
+  @apply text-gray-500;
+}
+@utility card-valueNew{
+  @apply text-red-500 font-semibold ml-1;
+}
+@utility card-data{
+  @apply text-gray-600 font-semibold;
 }
 
 
