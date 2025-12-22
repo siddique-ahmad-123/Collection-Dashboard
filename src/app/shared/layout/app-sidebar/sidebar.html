@@ -1,23 +1,77 @@
-<aside class="fixed h-full bg-white border-r transition-all duration-300" [class.w-64]="open" [class.w-20]="!open">
-  <div class="p-4 font-bold text-brand-500">
+<aside
+  class="fixed h-full bg-white border-r transition-all duration-300
+         flex flex-col"
+  [class.w-64]="open"
+  [class.w-20]="!open"
+>
+  <div class="p-4 font-bold text-brand-500 shrink-0">
     {{ open ? 'TailAdmin' : 'TA' }}
   </div>
 
-  <nav class="p-2 space-y-1">
-    <a class="menu-item menu-item-active">
-      <span class="menu-item-icon-active">📊</span>
-      @if (open) {
-      <span>Dashboard</span>
+  <nav class="flex-1 overflow-y-auto p-2 space-y-1 sidebar-scroll">
+
+    @for (item of navItems; track item.name; let i = $index) {
+
+      <!-- 🔹 Parent item with subItems -->
+      @if (item.subItems?.length) {
+
+        <a
+          class="menu-item"
+          (click)="toggleSubmenu('main', i)"
+        >
+          <span
+            class="menu-item-icon"
+            [innerHTML]="item.icon"
+          ></span>
+
+          @if (open) {
+            <span>{{ item.name }}</span>
+          }
+        </a>
+
+        <!-- 🔸 Submenu -->
+        <div
+          [id]="'main-' + i"
+          class="overflow-hidden transition-all duration-300 pl-6"
+          [style.height.px]="openSubmenu === 'main-' + i ? subMenuHeights['main-' + i] : 0"
+        >
+          @for (sub of item.subItems; track sub.path) {
+            <a
+              class="menu-item menu-item-inactive"
+              [routerLink]="sub.path"
+              routerLinkActive="menu-item-active"
+              (click)="onSubmenuClick()"
+            >
+              @if (open) {
+                <span>{{ sub.name }}</span>
+              }
+            </a>
+          }
+        </div>
+
       }
 
-    </a>
+      <!-- 🔹 Single route item (like Calendar) -->
+      @else {
 
-    <a class="menu-item menu-item-inactive">
-      <span class="menu-item-icon">🛒</span>
-      @if (open) {
-      <span>Ecommerce</span>
+        <a
+          class="menu-item menu-item-inactive"
+          [routerLink]="item.path"
+          routerLinkActive="menu-item-active"
+        >
+          <span
+            class="menu-item-icon"
+            [innerHTML]="item.icon"
+          ></span>
+
+          @if (open) {
+            <span>{{ item.name }}</span>
+          }
+        </a>
+
       }
 
-    </a>
+    }
+
   </nav>
 </aside>
