@@ -11,7 +11,7 @@ import { Component, Input } from '@angular/core';
 })
 export class StatCardComponent {
 
-   @Input() title!: string;
+  @Input() title!: string;
 
   @Input() casesDone!: number;
   @Input() totalCases!: number;
