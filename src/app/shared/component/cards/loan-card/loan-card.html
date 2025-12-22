@@ -1,0 +1,36 @@
+<div>
+  <mat-card
+    class="card"
+  >
+    <div class="space-y-3">
+      <h3 class="card-title">
+        {{ title }}
+      </h3>
+
+      <div class="text-sm">
+        <div>
+          <span class="card-value">Cases:</span>
+        </div>
+        <div>
+          <span class="card-valueNew">
+            {{ casesDone | number }}
+          </span>
+          <span class="card-data"> /{{ totalCases | number }} </span>
+        </div>
+      </div>
+
+      <div class="text-sm">
+        <div>
+          <span class="card-value">OverDue Amount:</span>
+        </div>
+        <div>
+          <span class="card-valueNew">
+            {{ overdueAmount | number }}
+          </span>
+          <span class="card-data"> /{{ totalAmount | number }} </span>
+        </div>
+      </div>
+    </div>
+    
+  </mat-card>
+</div>

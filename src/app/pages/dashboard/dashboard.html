@@ -1,15 +1,36 @@
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+  
+  <app-loan-card
+    *ngFor="let card of cards"
+    [title]="card.title"
+    [casesDone]="card.casesDone"
+    [totalCases]="card.totalCases"
+    [overdueAmount]="card.overdueAmount"
+    [totalAmount]="card.totalAmount"
+  >
+  </app-loan-card>
 
-  <div class="card">
-    <p class="card-title">Customers</p>
-    <h2 class="card-value">3,782</h2>
-    <span class="text-success-500 text-sm">↑ 11%</span>
-  </div>
-
-  <div class="card">
-    <p class="card-title">Orders</p>
-    <h2 class="card-value">5,359</h2>
-    <span class="text-error-500 text-sm">↓ 9%</span>
-  </div>
-
+  
 </div>
+
+
+
+  
+  <div class="grid grid-cols-3 gap-6">
+
+    
+  
+    <app-pie-chart 
+      [series]="productSeries"
+      [labels]="productLabels">
+    </app-pie-chart>
+
+    <app-bar-chart></app-bar-chart>
+    <app-donut-chart></app-donut-chart>
+  
+  </div>
+
+  
+  
+  
+
