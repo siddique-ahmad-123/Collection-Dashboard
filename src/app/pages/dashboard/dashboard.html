@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+<div class="card-alignemnt">
   
   <app-loan-card
     *ngFor="let card of cards"
@@ -16,17 +16,64 @@
 
 
   
-  <div class="grid grid-cols-3 gap-6">
+  <div class="chart-alignment">
 
     
-  
-    <app-pie-chart 
+    <div class="min-h-95">
+      <h2 class="card-heading">Product Wise Classifications</h2>
+      <app-pie-chart 
       [series]="productSeries"
       [labels]="productLabels">
     </app-pie-chart>
+    </div>
 
-    <app-bar-chart></app-bar-chart>
-    <app-donut-chart></app-donut-chart>
+    <div class="min-h-95" >
+      <h2 class="card-heading">Top Spending Category</h2>
+      <app-bar-chart ></app-bar-chart>
+    </div>
+
+    <div class="min-h-95">
+      <h2 class="card-heading">Collection Status</h2>
+      <app-donut-chart 
+      [series]="collectionSeries"
+      [labels]="collectionLabels"
+      [colors]="collectionColors"                       >
+      ></app-donut-chart>
+    </div>
+
+    <div class="min-h-95">
+      <h2 class="card-heading">Product Wise Classifications</h2>
+      <app-pie-chart 
+      [series]="classificationSeries"
+      [labels]="productLabels">
+    </app-pie-chart>
+    </div>
+    
+    <div>
+      <h2 class="card-heading">Change in CIBIL Score</h2>
+      <app-donut-chart
+      [series]="performanceSeries"
+      [labels]="performanceLabels"
+      [colors]="performanceColors"
+      >
+
+      </app-donut-chart>
+    </div>
+
+    <div>
+      <h2 class="card-heading">Bureau Score</h2>
+      <app-donut-chart
+      [series]="scoreSeries"
+      [labels]="scoreLabels"
+      [colors]="scoreColors"
+      
+      >
+
+      </app-donut-chart>
+    </div>
+
+    
+    
   
   </div>
 

@@ -36,7 +36,8 @@ export class BarChartComponent {
     ],
     chart: {
       type: 'bar',
-      height: 280,
+      height: 300,
+      width:400,
       toolbar: {
         show: false
       }
