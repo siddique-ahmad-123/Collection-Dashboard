@@ -1,0 +1,106 @@
+<div class="border rounded-lg overflow-hidden bg-white">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-4 py-2 border-b">
+
+    <div class="flex items-center gap-2">
+      <select class="border rounded px-2 py-1 text-sm">
+        <option>All Co</option>
+      </select>
+
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Search"
+          class="border rounded pl-2 pr-8 py-1 text-sm"
+        />
+        <span class="absolute right-2 top-1.5 text-gray-500">🔍</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-4 text-blue-600">
+      <button (click)="deleteSelectedRows()" title="Delete">
+        <lucide-icon [name]="TrashIcon" class="w-5 h-5"></lucide-icon>
+      </button>
+
+      <button (click)="openAddForm()" title="Add">
+        <lucide-icon [name]="AddIcon" class="w-5 h-5"></lucide-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Add Row Form -->
+  @if (showAddForm) {
+    <div class="p-4 border-b bg-gray-50 grid grid-cols-2 gap-3">
+      @for (col of columns; track col.key) {
+        <input
+          class="border rounded px-2 py-1 text-sm"
+          [placeholder]="col.label"
+          [(ngModel)]="newRow[col.key]"
+        />
+      }
+
+      <div class="col-span-2 flex justify-end gap-2">
+        <button
+          class="px-3 py-1 text-sm border rounded"
+          (click)="showAddForm = false">
+          Cancel
+        </button>
+        <button
+          class="px-3 py-1 text-sm bg-blue-600 text-white rounded"
+          (click)="saveRow()">
+          Save
+        </button>
+      </div>
+    </div>
+  }
+
+  <!-- Table -->
+  <table class="w-full border-collapse">
+    <thead class="bg-gray-100">
+      <tr>
+        <th *ngIf="showCheckbox" class="w-10 text-center">
+          <input type="checkbox" />
+          
+        </th>
+
+        @for (col of columns; track col.key) {
+          <th
+            class="px-4 py-2 text-sm font-semibold border-b"
+            [class.text-right]="col.align === 'right'"
+            [class.text-center]="col.align === 'center'"
+          >
+            {{ col.label }}
+          </th>
+        }
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (row of rows; track $index) {
+        <tr class="border-b hover:bg-gray-50">
+
+          <td *ngIf="showCheckbox" class="text-center">
+            <input
+              type="checkbox"
+              (change)="toggleRow(row, $event)"
+            />
+          </td>
+
+          @for (col of columns; track col.key) {
+            <td
+              class="px-4 py-2"
+              [class.text-right]="col.align === 'right'"
+              [class.text-center]="col.align === 'center'"
+            >
+              {{ row[col.key] }}
+            </td>
+          }
+
+        </tr>
+      }
+    </tbody>
+  </table>
+
+</div>

@@ -1,21 +1,19 @@
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-
+import { LucideAngularModule, LucideIconData } from 'lucide-angular';
 
 @Component({
-  selector: 'app-loan-summary-card',
+  selector: 'app-case-card',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './stat-card.html',
-  styleUrls: ['./stat-card.css']
+  imports: [CommonModule, LucideAngularModule],
+  templateUrl: './stat-card.html'
 })
-export class StatCardComponent {
-
+export class CaseCardComponent {
   @Input() title!: string;
+  @Input() value!: number;
 
-  @Input() casesDone!: number;
-  @Input() totalCases!: number;
+  // Lucide icon (optional but recommended)
+  @Input() icon?: LucideIconData;
 
-  @Input() overdueAmount!: number;
-  @Input() totalAmount!: number;
+  @Output() viewAll = new EventEmitter<void>();
 }

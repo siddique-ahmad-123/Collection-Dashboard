@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-loan-card',
   imports: [MatCardModule,MatIconModule,CommonModule],
   templateUrl: './loan-card.html',
-  //styleUrl: './loan-card.css',
 })
 export class LoanCard {
   @Input() title!: string;
