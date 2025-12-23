@@ -1,0 +1,11 @@
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<app-dynamic-table
+  [columns]="columns"
+  [rows]="rows"
+  [showCheckbox]="true"
+  (rowSelect)="onRowSelect($event)">
+</app-dynamic-table>
+
+<app-line-column-bar-chart></app-line-column-bar-chart>
+</div>

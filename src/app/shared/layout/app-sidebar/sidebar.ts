@@ -16,6 +16,16 @@ import {
   Settings,
   LucideAngularModule,
   LucideIconData,
+  BlocksIcon,
+  SpotlightIcon,
+  ChartNoAxesColumn,
+  ChessKing,
+  TrendingUpDown,
+  Scale,
+  HatGlasses,
+  Warehouse,
+  ListCollapse,
+  TrophyIcon,
 } from 'lucide-angular';
 
 type NavItem = {
@@ -44,60 +54,60 @@ export class SidebarComponent {
     {
       icon: Calendar,
       name: 'Portfolio Analysis',
-      path: '',
+      path: 'portfolio',
       subItems: [
-        { name: 'Portfolio Analysis', path: '/portfolioAnlysis' },
+        { name: 'Portfolio Analysis', path: '/portfolioAnalysis' },
         { name: 'Home Loan Consolidated', path: '/homeLoanConsolidated' },
         { name: 'Auto Loan Consolidated', path: '/autoLoanConsolidated' },
       ],
     },
     {
-      icon: LayoutDashboard,
+      icon: BlocksIcon,
       name: 'Early Warning Dashboard',
       path: 'calendar',
     },
     {
-      icon: LayoutDashboard,
+      icon: SpotlightIcon,
       name: 'Performance Monitoring',
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: ChartNoAxesColumn,
       name: 'Risk Analysis',
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: ChessKing,
       name: 'Leader Board',
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: TrendingUpDown,
       name: 'Forcasting',
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: Scale,
       name: 'Decision analytics',
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: HatGlasses,
       name: 'Recovery & Legal',
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: Warehouse,
       name: 'Repossession',
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: ListCollapse,
       name: 'Foreclosure',
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: TrophyIcon,
       name: 'Champion Challenger',
       path: '',
     },
@@ -112,7 +122,7 @@ export class SidebarComponent {
       path: '',
     },
     {
-      icon: LayoutDashboard,
+      icon: HatGlasses,
       name: 'Agent Dashboard',
       path: '',
     },

@@ -262,61 +262,57 @@
 }
 
 @utility menu-item {
-  @apply flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer
-         text-slate-600 hover:bg-blue-50 transition-all duration-200;
+  @apply flex items-center gap-3 px-4 py-2.5 rounded-xl cursor-pointer
+         text-sm font-medium text-gray-600
+         transition-all duration-200
+         hover:bg-blue-50 hover:text-blue-600;
 }
 
+
+
+/* Active route */
 @utility menu-item-active {
-  @apply bg-brand-50 text-brand-500
-         dark:bg-brand-500/10 dark:text-brand-400;
+  @apply bg-blue-50 text-blue-600 font-medium;
 }
+
 
 @utility menu-item-inactive {
-  @apply text-gray-700 hover:bg-gray-100
-         dark:text-gray-300 dark:hover:bg-white/5;
+  @apply  bg-white text-gray-600;
 }
+
 
 @utility menu-item-icon {
-  @apply text-gray-500 dark:text-gray-400;
+  @apply flex  items-center justify-center w-9 h-9
+         rounded-lg
+         text-current
+         transition-colors duration-200;
 }
 
-@utility menu-item-icon-active {
-  @apply text-brand-500 dark:text-brand-400;
-}
 
-@utility menu-dropdown-item {
-  @apply flex items-center gap-3 px-3 py-2 rounded-lg
-         text-theme-sm font-medium;
-}
 
 @utility menu-item-open {
-  @apply bg-blue-50 text-blue-600;
+  @apply bg-blue-50 text-blue-600 font-medium;
 }
 
-@utility menu-item-open {
-  @apply bg-blue-50 text-blue-600;
-}
-
- @utility menu-icon {
-  @apply flex items-center justify-center w-9 h-9
-         rounded-lg bg-white text-blue-500 shadow-sm;
-}
-
-@utility chevron {
-  @apply transition-transform duration-300 text-blue-500;
-}
 
 @utility submenu-wrapper {
-  @apply overflow-hidden transition-all duration-300 pl-6 mt-1;
+  @apply bg-blue-50 overflow-hidden transition-all duration-300 pl-6 mt-1 font-medium;
 }
 
- @utility submenu-item {
-  @apply block px-4 py-2 mt-2 rounded-xl text-sm
-         text-slate-600 hover:bg-blue-50 transition;
+@utility submenu-item {
+  @apply block px-4 py-2 mt-1 rounded-lg
+         text-sm text-gray-600 font-medium
+         transition-all duration-200 cursor-pointer
+         hover:bg-blue-50 hover:text-blue-600;;
+}
+
+
+@utility submenu-active {
+  @apply  text-blue-600 font-medium;
 }
 
 @utility submenu-active {
-  @apply bg-blue-50 text-blue-600;
+  @apply bg-white text-blue-600 font-medium;
 }
 
 @utility chart-alignment{
@@ -325,5 +321,12 @@
 
 @utility card-alignemnt{
   @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6;
+}
+
+@utility button-cust {
+  @apply mt-6 inline-flex items-center justify-center
+           rounded-lg bg-blue-600 px-4 py-2
+           text-sm font-medium text-white
+           hover:bg-blue-700 transition
 }
 

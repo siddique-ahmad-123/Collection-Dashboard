@@ -1,0 +1,46 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+  <app-case-card
+    title="Home Loan"
+    [value]="1425"
+    [icon]="HomeIcon"
+    (viewAll)="onViewAll('home-loan')">
+  </app-case-card>
+  <app-case-card
+    title="Home Loan"
+    [value]="1425"
+    [icon]="HomeIcon"
+    (viewAll)="onViewAll('home-loan')">
+  </app-case-card>
+  <app-case-card
+    title="Home Loan"
+    [value]="1425"
+    [icon]="HomeIcon"
+    (viewAll)="onViewAll('home-loan')">
+  </app-case-card>
+  <app-case-card
+    title="Home Loan"
+    [value]="1425"
+    [icon]="HomeIcon"
+    (viewAll)="onViewAll('home-loan')">
+  </app-case-card>
+
+  
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+  <!-- Pie Chart -->
+  <div class="min-h-20">
+    <h4 class="card-heading">Category Wise Classifications</h4>
+    <app-pie-chart
+      [series]="productSeries"
+      [labels]="productLabels">
+    </app-pie-chart>
+  </div>
+
+  <!-- Line Chart -->
+  <div class="min-h-20">
+    <app-line-chart></app-line-chart>
+  </div>
+
+</div>
+
