@@ -5,6 +5,7 @@ import { CalenderComponent } from './pages/calender/calender.component';
 import { portfolioAnlysis } from './pages/portfolio/portfolioAnalysis/portfolioAnalysis';
 import { autoLoanConsolidated } from './pages/portfolio/autoLoanConsolidated/autoLoanConsolidated';
 import { homeLoanConsolidated } from './pages/portfolio/homeLoanConsolidated/homeLoanConsolidated';
+import { AutoLoanDetailComponent } from './pages/portfolio/autoLoanConsolidated/autoLoanDetail';
 
 export const routes: Routes = [
     {
@@ -37,6 +38,14 @@ export const routes: Routes = [
         component:homeLoanConsolidated,
         title:''
       },
+      {
+    path: 'auto-loan',
+    component: autoLoanConsolidated
+  },
+  {
+    path: 'auto-loan/:id',
+    component: AutoLoanDetailComponent
+  }
     ],
   },
 ];
