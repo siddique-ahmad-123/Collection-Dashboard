@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-group-level-dashboard',
   imports: [],
   templateUrl: './group-level-dashboard.html',
-  styleUrl: './group-level-dashboard.css',
 })
 export class GroupLevelDashboard {
 

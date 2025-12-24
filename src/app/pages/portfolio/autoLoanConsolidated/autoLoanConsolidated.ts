@@ -11,8 +11,6 @@ import { Router } from '@angular/router';
   templateUrl: './autoLoanConsolidated.html'
 })
 export class autoLoanConsolidated {
-
-  
   constructor(private router: Router) {}
 
   columns : TableColumn [] = [
@@ -30,7 +28,7 @@ export class autoLoanConsolidated {
   ];
 
  onRowSelect(row: any) {
-  if (row?.id === 1) {
+  if (row?.id === 1 || row?.id === 2 || row?.id === 3 || row?.id === 4 || row?.id === 5 ) {
     this.router.navigate(['/auto-loan', row.id]);
   }
 }

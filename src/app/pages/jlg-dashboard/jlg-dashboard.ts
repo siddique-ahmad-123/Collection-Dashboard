@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-jlg-dashboard',
   imports: [],
   templateUrl: './jlg-dashboard.html',
-  styleUrl: './jlg-dashboard.css',
 })
 export class JlgDashboard {
 

@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-foreclosure',
   imports: [],
   templateUrl: './foreclosure.html',
-  styleUrl: './foreclosure.css',
 })
 export class Foreclosure {
 

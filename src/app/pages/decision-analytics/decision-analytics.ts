@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-decision-analytics',
   imports: [],
   templateUrl: './decision-analytics.html',
-  styleUrl: './decision-analytics.css',
+
 })
 export class DecisionAnalytics {
 

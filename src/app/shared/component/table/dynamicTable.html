@@ -62,12 +62,11 @@
       <tr>
         <th *ngIf="showCheckbox" class="w-10 text-center">
           <input type="checkbox" />
-          
         </th>
 
         @for (col of columns; track col.key) {
           <th
-            class="px-4 py-2 text-sm font-semibold border-b"
+            class="px-8 py-1 text-sm font-semibold border-b"
             [class.text-right]="col.align === 'right'"
             [class.text-center]="col.align === 'center'"
           >
@@ -90,7 +89,7 @@
 
           @for (col of columns; track col.key) {
             <td
-              class="px-4 py-2"
+              class="px-2 py-1"
               [class.text-right]="col.align === 'right'"
               [class.text-center]="col.align === 'center'"
             >
