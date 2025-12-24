@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-riskanalysis',
   imports: [],
   templateUrl: './riskanalysis.html',
-  styleUrl: './riskanalysis.css',
 })
 export class Riskanalysis {
 

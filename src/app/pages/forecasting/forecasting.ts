@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-forecasting',
   imports: [],
   templateUrl: './forecasting.html',
-  styleUrl: './forecasting.css',
+  
 })
 export class Forecasting {
 

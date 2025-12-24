@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-performance-monitoring',
   imports: [],
   templateUrl: './performance-monitoring.html',
-  styleUrl: './performance-monitoring.css',
 })
 export class PerformanceMonitoring {
 
