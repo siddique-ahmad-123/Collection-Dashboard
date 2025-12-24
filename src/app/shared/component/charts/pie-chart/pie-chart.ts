@@ -33,15 +33,12 @@ export class PieChartComponent {
     
     chart: {
       type: 'donut',
-      width: 400,
-      height:400
     },
     labels: [],
     legend: {
       show: true,
       position: 'bottom',       
       horizontalAlign: 'center',
-      floating: false
     },
     responsive: [
       {
