@@ -21,11 +21,10 @@ export class DynamicTableComponent {
   @Input() columns: TableColumn[] = [];
   @Input() rows: any[] = [];
   @Input() showCheckbox = false;
-
   @Output() rowSelect = new EventEmitter<any>();
   @Output() addRow = new EventEmitter<any>();
   @Output() deleteRows = new EventEmitter<any[]>();
-
+  
   TrashIcon = Trash2;
   AddIcon = Plus;
 
