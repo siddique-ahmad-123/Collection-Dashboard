@@ -9,7 +9,7 @@ import { ChartComponent } from "ng-apexcharts";
 @Component({
   selector: 'app-port-folio',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule, CaseCardComponent, PieChartComponent, LineChart, ChartComponent],
+  imports: [CommonModule, LucideAngularModule, CaseCardComponent, PieChartComponent, LineChart],
   templateUrl: './portfolioAnalysis.html'
 })
 export class portfolioAnlysis {
