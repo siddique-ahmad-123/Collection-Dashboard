@@ -39,7 +39,6 @@ export class DonutChartComponent {
     series:[],
     chart: {
       type: 'pie',
-      width: 360,
       toolbar: {
         show: false
       }

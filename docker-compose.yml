@@ -1,0 +1,34 @@
+# services definition for Docker Compose
+services:
+  # Development server for Angular application
+  angular:
+    # Service configuration
+    container_name: collection-angular-dev
+    image: collection-angular-dev
+    # Build configuration
+    build:
+      # context is the directory where the Dockerfile is located
+      context: .
+      # specify the Dockerfile to use
+      dockerfile: Dockerfile.dev
+    # Port mapping
+    ports:
+      # Map host port 4200 to container port 4200
+      - "4200:4200"
+    # Volume mapping
+    volumes:
+      # Map current directory to /app in the container
+      - .:/app
+      # Exclude node_modules from being mapped
+      - /app/node_modules
+    command: npm run start
+    # File synchronization settings
+    develop:
+      watch:
+        - action: rebuild
+          path: ./package.json
+        - action: rebuild
+          path: ./package-lock.json
+        - action: sync
+          path: ./src
+          target: /app/src

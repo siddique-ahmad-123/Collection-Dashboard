@@ -69,62 +69,62 @@ export class SidebarComponent {
     {
       icon: SpotlightIcon,
       name: 'Performance Monitoring',
-      path: '',
+      path: 'PerformanceMonitoring',
     },
     {
       icon: ChartNoAxesColumn,
       name: 'Risk Analysis',
-      path: '',
+      path: 'Riskanalysis',
     },
     {
       icon: ChessKing,
       name: 'Leader Board',
-      path: '',
+      path: 'LeaderBoard',
     },
     {
       icon: TrendingUpDown,
       name: 'Forcasting',
-      path: '',
+      path: 'Forecasting',
     },
     {
       icon: Scale,
       name: 'Decision analytics',
-      path: '',
+      path: 'DecisionAnalytics',
     },
     {
       icon: HatGlasses,
       name: 'Recovery & Legal',
-      path: '',
+      path: 'Recovery',
     },
     {
       icon: Warehouse,
       name: 'Repossession',
-      path: '',
+      path: 'Reposession',
     },
     {
       icon: ListCollapse,
       name: 'Foreclosure',
-      path: '',
+      path: 'Foreclosure',
     },
     {
       icon: TrophyIcon,
       name: 'Champion Challenger',
-      path: '',
+      path: 'ChampionChallenger',
     },
     {
       icon: LayoutDashboard,
       name: 'Group Level Dashboard',
-      path: '',
+      path: 'GroupLevelDashboard',
     },
     {
       icon: LayoutDashboard,
-      name: 'JLG Dashboard',
+      name: 'JlgDashboard',
       path: '',
     },
     {
       icon: HatGlasses,
       name: 'Agent Dashboard',
-      path: '',
+      path: 'AgentDashboard',
     },
   ];
   openSubmenu: string | null | number = null;

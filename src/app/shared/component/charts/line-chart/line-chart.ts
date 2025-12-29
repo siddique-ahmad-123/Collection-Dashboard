@@ -1,5 +1,3 @@
-
-
 import { Component, ViewChild } from "@angular/core";
 
 import {
@@ -12,6 +10,7 @@ import {
   ApexStroke,
   ApexGrid
 } from "ng-apexcharts";
+import { DashboardService } from "../../../../../services/dashboard-services";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -32,25 +31,20 @@ export type ChartOptions = {
 export class LineChart {
 
   @ViewChild("chart") chart!: ChartComponent;
-    public chartOptions: ChartOptions = {
-      series: [
-        {
-          name: "Home Loan",
-          data: [10, 41, 35, 51]
-        },
-         {
-          name: "Auto Loan",
-          data: [2, 49, 32, 90]
-        },
-        {
-          name: "Personal Loan",
-          data: [21, 78, 3, 50]
-        },
-        {
-          name: "Credit Card",
-          data: [31, 4, 35, 34]
-        }
-      ],
+
+    public chartOptions!: ChartOptions;
+    loading = true;
+    error = false;
+ 
+constructor(private dashboardService: DashboardService) {}
+
+  ngOnInit(): void {
+    this.initializeChart();
+    this.loadChartData();
+  }
+  initializeChart() {
+    this.chartOptions = {
+      series: [],
       chart: {
         height: 350,
         type: "line",
@@ -75,15 +69,25 @@ export class LineChart {
         }
       },
       xaxis: {
-        categories: [
-          "2022",
-          "2021",
-          "2020",
-          "2019"
-        ]
+        categories: []
       }
       
     };
+  }
+  loadChartData() {
+    this.dashboardService.getRecoveryTrends().subscribe({
+      next:(res) => {
+        this.chartOptions.series = res.series;
+        this.chartOptions.xaxis = { categories: res.categories };
+        this.loading = false;
+      },
+      error: () => {
+        this.error = true;
+        this.loading = false;
+      }
+    })
+  }
+
   }
 
 
