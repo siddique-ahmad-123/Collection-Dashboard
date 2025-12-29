@@ -64,7 +64,7 @@ export class SidebarComponent {
     {
       icon: BlocksIcon,
       name: 'Early Warning Dashboard',
-      path: 'calendar',
+      path: 'EarlyWarningDashboard',
     },
     {
       icon: SpotlightIcon,
