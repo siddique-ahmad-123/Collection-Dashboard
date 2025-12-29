@@ -1,0 +1,98 @@
+<h1 class="text-center font-bold">Early Warning Dashboard</h1>
+
+<div class="chart-alignment flex">
+  <div class="gap-6">
+    <h2 class="card-heading left-0">Aggregate View</h2>
+    <hr class="border-t-2 border-blue-500 mt-2" />
+
+    <app-donut-chart
+      [series]="aggregateSeries"
+      [labels]="aggregateLabels"
+      [colors]="aggregateColors"
+    >
+    </app-donut-chart>
+  </div>
+  <div class="ml-32 mt-28">
+    <app-dynamic-table
+      [columns]="columns"
+      [rows]="rows"
+      [showCheckbox]="true"
+      (rowSelect)="onRowSelect($event)"
+    >
+    </app-dynamic-table>
+  </div>
+</div>
+
+<div class="chart-alignment flex">
+  <div class="gap-6">
+    <h2 class="card-heading text-center left-0">Top Early Warning Triggers</h2>
+    <hr class="border-t-2 border-blue-500 mt-2" />
+
+    <app-column-chart [seriesData]="monthlyInflation" [categories]="months"> </app-column-chart>
+  </div>
+  <div class="ml-42 mt-44">
+    <app-dynamic-table
+      [columns]="columns"
+      [rows]="rows"
+      [showCheckbox]="true"
+      (rowSelect)="onRowSelect($event)"
+    >
+    </app-dynamic-table>
+  </div>
+</div>
+
+<div class="chart-alignment flex">
+  <div class="gap-6">
+    <h2 class="card-heading left-0">Learn Portfolio Matrix</h2>
+    <hr class="border-t-2 border-blue-500 mt-2" />
+    <app-column-chart [seriesData]="monthlyInflation" [categories]="months"> </app-column-chart>
+  </div>
+
+  <div class="ml-42 mt-44">
+    <app-dynamic-table [columns]="columns" [rows]="rows" [showCheckbox]="true"> </app-dynamic-table>
+  </div>
+</div>
+
+<div class="chart-alignment flex">
+  <div class="gap-6">
+    <h2 class="card-heading left-0">Geographic / Regional Risk</h2>
+    <hr class="border-t-2 border-blue-500 mt-2" />
+    <app-column-group [series]="revenueSeries" [categories]="months" title="Company Financials">
+    </app-column-group>
+  </div>
+
+  <div class="ml-42 mt-44">
+    <app-dynamic-table [columns]="columns" [rows]="rows" [showCheckbox]="true"> </app-dynamic-table>
+  </div>
+</div>
+
+<div class="chart-alignment flex">
+  <div class="gap-6">
+    <h2 class="card-heading left-0">Behavioral & Collections Indicators</h2>
+    <hr class="border-t-2 border-blue-500 mt-2" />
+  </div>
+
+  <div class="mt-24">
+    <app-dynamic-table [columns]="columns" [rows]="rows" [showCheckbox]="true"> </app-dynamic-table>
+  </div>
+</div>
+
+<div class="chart-alignment flex">
+  <div class="gap-6">
+    <h2 class="card-heading left-0">Employment & Income Stability</h2>
+    <hr class="border-t-2 border-blue-500 mt-2" />
+  </div>
+
+  <div class="mt-24">
+    <app-dynamic-table [columns]="columns" [rows]="rows" [showCheckbox]="true"> </app-dynamic-table>
+  </div>
+</div>
+
+<div class="chart-alignment flex">
+  <h2 class="card-heading left-0">Detailed Report</h2>
+  <hr class="border-t-2 border-blue-500 mt-2" />
+
+  <div class="mt-22">
+    <app-dynamic-table [columns]="columns" [rows]="rows" [showCheckbox]="true"> </app-dynamic-table>
+  </div>
+</div>

@@ -5,6 +5,9 @@ import { CalenderComponent } from './pages/calender/calender.component';
 import { portfolioAnlysis } from './pages/portfolio/portfolioAnalysis/portfolioAnalysis';
 import { autoLoanConsolidated } from './pages/portfolio/autoLoanConsolidated/autoLoanConsolidated';
 import { homeLoanConsolidated } from './pages/portfolio/homeLoanConsolidated/homeLoanConsolidated';
+
+import { EarlyWarningDashboard } from './pages/early-warning-dashboard/early-warning-dashboard';
+
 import { AutoLoanDetailComponent } from './pages/portfolio/autoLoanConsolidated/autoLoanDetail';
 import { Riskanalysis } from './pages/riskanalysis/riskanalysis';
 import { Reposession } from './pages/reposession/reposession';
@@ -19,6 +22,7 @@ import { DecisionAnalytics } from './pages/decision-analytics/decision-analytics
 import { ChampionChallenger } from './pages/champion-challenger/champion-challenger';
 import { AgentDashboard } from './pages/agent-dashboard/agent-dashboard';
 import { homeLoanDetail } from './pages/portfolio/homeLoanConsolidated/homeLoanDetail';
+
 
 export const routes: Routes = [
   {
@@ -122,6 +126,11 @@ export const routes: Routes = [
       {
         path: 'homeLoanDetail/:id',
         component: homeLoanDetail,
+      },
+      {
+        path:'EarlyWarningDashboard',     
+        component:EarlyWarningDashboard,
+        title:''
       },
     ],
   },
