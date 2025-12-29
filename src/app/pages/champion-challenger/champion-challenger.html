@@ -1,1 +1,84 @@
-<p>champion-challenger works!</p>
+<div class="min-h-screen bg-gray-400 p-6">
+
+  <!-- PAGE TITLE -->
+  <div class="max-w-7xl mx-auto mb-6">
+    <div
+      class="bg-gray-600 text-white text-center text-3xl font-semibold py-4 rounded-lg border border-white">
+      Champion Challenger Dashboard
+    </div>
+  </div>
+
+  <!-- DROPDOWN -->
+  <div class="max-w-7xl mx-auto mb-8">
+    <select
+      [(ngModel)]="selectedChallenger"
+      class="bg-sky-300 text-white px-6 py-3 rounded-lg font-semibold focus:outline-none">
+      <option *ngFor="let c of challengers" [value]="c">{{ c }}</option>
+    </select>
+  </div>
+
+  <!-- STRATEGY HEADERS -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div class="bg-gray-600 text-white text-center text-xl font-semibold py-4 rounded-lg border">
+      Champion Strategy
+    </div>
+    <div class="bg-gray-600 text-white text-center text-xl font-semibold py-4 rounded-lg border">
+      {{ selectedChallenger }} Strategy
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+
+    <!-- Champion -->
+    <div class="bg-gray-600 text-white rounded-lg p-6 grid grid-cols-2 gap-y-3 text-sm">
+      <p>Current Cases : {{ championStats.currentCases }}</p>
+      <p>Current Percentage Cases : {{ championStats.currentPercentage }}%</p>
+
+      <p>Last Run Quarter : {{ championStats.lastRunQuarter }}</p>
+      <p>Last Quarter Recovery : {{ championStats.lastQuarterRecovery }}%</p>
+
+      <p>Total Cases in Last Quarter : {{ championStats.totalCasesLastQuarter }}</p>
+      <p>Last Percentage Cases : {{ championStats.lastPercentageCases }}%</p>
+    </div>
+
+    <!-- Challenger -->
+    <div class="bg-gray-600 text-white rounded-lg p-6 grid grid-cols-2 gap-y-3 text-sm">
+      <p>Current Cases : {{ challengerStats.currentCases }}</p>
+      <p>Current Percentage Cases : {{ challengerStats.currentPercentage }}%</p>
+
+      <p>Last Run Quarter : {{ challengerStats.lastRunQuarter }}</p>
+      <p>Last Quarter Recovery : {{ challengerStats.lastQuarterRecovery }}%</p>
+
+      <p>Total Cases in Last Quarter : {{ challengerStats.totalCasesLastQuarter }}</p>
+      <p>Last Percentage Cases : {{ challengerStats.lastPercentageCases }}%</p>
+    </div>
+
+  </div>
+
+  <!-- CHART TITLES -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+    <div class="bg-gray-600 text-white text-center text-2xl font-semibold py-4 rounded-lg border">
+      Champion Strategy Summary
+    </div>
+    <div class="bg-gray-600 text-white text-center text-2xl font-semibold py-4 rounded-lg border">
+      {{ selectedChallenger }} Strategy Summary
+    </div>
+  </div>
+
+  <!-- CHART PLACEHOLDERS -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <div class="bg-gray-700 rounded-lg p-6 h-72 flex items-center justify-center text-white">
+      <!-- Replace with Apex / Chart component -->
+      Champion Chart
+    </div>
+
+    <div class="bg-gray-700 rounded-lg p-6 h-72 flex items-center justify-center text-white">
+      <!-- Replace with Apex / Chart component -->
+      Challenger Chart
+    </div>
+
+  </div>
+
+</div>
