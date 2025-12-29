@@ -5,6 +5,7 @@ import { CalenderComponent } from './pages/calender/calender.component';
 import { portfolioAnlysis } from './pages/portfolio/portfolioAnalysis/portfolioAnalysis';
 import { autoLoanConsolidated } from './pages/portfolio/autoLoanConsolidated/autoLoanConsolidated';
 import { homeLoanConsolidated } from './pages/portfolio/homeLoanConsolidated/homeLoanConsolidated';
+import { EarlyWarningDashboard } from './pages/early-warning-dashboard/early-warning-dashboard';
 
 export const routes: Routes = [
     {
@@ -35,6 +36,11 @@ export const routes: Routes = [
       {
         path:'homeLoanConsolidated',     
         component:homeLoanConsolidated,
+        title:''
+      },
+      {
+        path:'EarlyWarningDashboard',     
+        component:EarlyWarningDashboard,
         title:''
       },
     ],

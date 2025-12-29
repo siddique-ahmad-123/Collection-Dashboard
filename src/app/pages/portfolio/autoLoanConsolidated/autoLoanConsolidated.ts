@@ -24,7 +24,7 @@ export class autoLoanConsolidated {
     }
   ];
 
-  // ✅ Hardcoded data (SIMULATES backend response)
+  
   rows = [
     {
       id: 1,
