@@ -8,7 +8,7 @@ import { ColumnGroupComponent } from "../../shared/component/charts/column-group
 
 @Component({
   selector: 'app-early-warning-dashboard',
-  imports: [DonutChartComponent, DynamicTableComponent, ColumnChartComponent, TableComponent, ColumnGroupComponent],
+  imports: [DonutChartComponent, DynamicTableComponent, ColumnChartComponent, ColumnGroupComponent],
   templateUrl: './early-warning-dashboard.html',
   //styleUrl: './early-warning-dashboard.css',
 })
