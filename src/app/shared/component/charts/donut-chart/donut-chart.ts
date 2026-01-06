@@ -1,6 +1,6 @@
-import { Component, Input, input, ViewChild } from '@angular/core';
-import { NgApexchartsModule, ChartComponent } from 'ng-apexcharts';
+import { Component, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import {
+  ChartComponent,
   ApexNonAxisChartSeries,
   ApexResponsive,
   ApexChart,
@@ -8,43 +8,40 @@ import {
   ApexLegend,
   ApexStroke
 } from 'ng-apexcharts';
+import { DashboardService } from '../../../../../services/dashboard-services';
+import { isPlatformBrowser } from '@angular/common';
 
-export type ChartOptions = {
+export type DonutChartOptions = {
   series: ApexNonAxisChartSeries;
   chart: ApexChart;
   labels: string[];
+  stroke: ApexStroke;
   dataLabels: ApexDataLabels;
   legend: ApexLegend;
-  stroke: ApexStroke;
-  colors: string[];
   responsive: ApexResponsive[];
-  
 };
 
 @Component({
   selector: 'app-donut-chart',
   standalone: true,
-  imports: [NgApexchartsModule],
-  templateUrl: './donut-chart.html',
+  imports: [ChartComponent],
+  templateUrl: './donut-chart.html'
 })
 export class DonutChartComponent {
+
   @ViewChild('chart') chart!: ChartComponent;
 
-  @Input() series:number[]=[];
-  @Input() labels:string[]=[];
-  @Input() colors:string[]=[];
+  loading = true;
+  error = false;
 
 
-  chartOptions: ChartOptions = {
-    series:[],
+  public chartOptions: DonutChartOptions = {
+    series: [],
     chart: {
-      type: 'pie',
-      toolbar: {
-        show: false
-      }
+      type: 'pie',          
+      toolbar: { show: false }
     },
-    labels:[],
-    colors: [],
+    labels: [],
     stroke: {
       width: 2,
       colors: ['#ffffff']
@@ -59,31 +56,59 @@ export class DonutChartComponent {
       }
     },
     legend: {
-      position: 'bottom',
+      position: 'bottom',   
       horizontalAlign: 'center',
       fontSize: '12px',
-      markers: {
-        shape: 'circle'
-      }
+      markers: { shape: 'circle' }
     },
     responsive: [
       {
         breakpoint: 480,
         options: {
-          chart: {
-            width: 220
-          },
-          legend: {
-            position: 'bottom'
-          }
+          chart: { width: 220 },
+          legend: { position: 'bottom' }
         }
       }
     ]
   };
 
-  ngOnChanges(): void{
-    this.chartOptions.series = this.series;
-    this.chartOptions.labels = this.labels;
-    this.chartOptions.colors = this.colors;
+  constructor(
+    private dashboardService: DashboardService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadChartData();
+    }
   }
+
+  loadChartData() {
+  this.dashboardService.getPieChartData().subscribe({
+    next: (pieChartData) => {
+
+      if (
+        !pieChartData ||
+        !Array.isArray(pieChartData.datasets) ||
+        !Array.isArray(pieChartData.labels)
+      ) {
+        console.error('Invalid pie chart data', pieChartData);
+        this.error = true;
+        this.loading = false;
+        return;
+      }
+
+      this.chartOptions.series = pieChartData.datasets[0].data;
+      this.chartOptions.labels = pieChartData.labels;
+
+      this.loading = false;
+    },
+    error: (err) => {
+      console.error('Pie chart API failed', err);
+      this.error = true;
+      this.loading = false;
+    }
+  });
+}
+
 }

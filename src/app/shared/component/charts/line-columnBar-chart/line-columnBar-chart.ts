@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexYAxis, ApexDataLabels, ApexStroke, ApexLegend, ApexTooltip, ChartComponent } from 'ng-apexcharts';
 
-export type ChartOptions = {
+export type ChartOptions = { 
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
