@@ -1,5 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
-
+import { Component, Inject, PLATFORM_ID, ViewChild } from "@angular/core";
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -11,6 +10,7 @@ import {
   ApexGrid
 } from "ng-apexcharts";
 import { DashboardService } from "../../../../../services/dashboard-services";
+import { CommonModule, isPlatformBrowser } from "@angular/common";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -24,7 +24,7 @@ export type ChartOptions = {
 
 @Component({
   selector: 'app-line-chart',
-  imports: [ChartComponent],
+  imports: [ChartComponent,CommonModule],
   templateUrl: './line-chart.html',
   styleUrl: './line-chart.css',
 })
@@ -32,62 +32,72 @@ export class LineChart {
 
   @ViewChild("chart") chart!: ChartComponent;
 
-    public chartOptions!: ChartOptions;
-    loading = true;
-    error = false;
- 
-constructor(private dashboardService: DashboardService) {}
 
-  ngOnInit(): void {
-    this.initializeChart();
-    this.loadChartData();
-  }
-  initializeChart() {
-    this.chartOptions = {
-      series: [],
-      chart: {
-        height: 350,
-        type: "line",
-        zoom: {
-          enabled: false
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: "straight"
-      },
-      title: {
-        text: "Recovery Trends Percentage",
-        align: "left"
-      },
-      grid: {
-        row: {
-          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-          opacity: 0.5
-        }
-      },
-      xaxis: {
-        categories: []
+  public chartOptions: ChartOptions = {
+    series: [],
+    chart: {
+      height: 350,
+      type: "line",
+      zoom: { enabled: false }
+    },
+    dataLabels: { enabled: false },
+    stroke: { curve: "straight" },
+    title: {
+      text: "Recovery Trends Percentage",
+      align: "left"
+    },
+    grid: {
+      row: {
+        colors: ["#f3f3f3", "transparent"],
+        opacity: 0.5
       }
-      
-    };
+    },
+    xaxis: { categories: [] }
+  };
+
+  loading = true;
+  error = false;
+
+  constructor(
+    private dashboardService: DashboardService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadChartData();
+    }
   }
+
   loadChartData() {
-    this.dashboardService.getRecoveryTrends().subscribe({
-      next:(res) => {
-        this.chartOptions.series = res.series;
-        this.chartOptions.xaxis = { categories: res.categories };
+    this.dashboardService.getDashboardData().subscribe({
+      next: (res) => {
+
+        const lineChartData = res?.data?.lineChart;
+
+        if (!Array.isArray(lineChartData)) {
+          console.error('Line Chart data missing or invalid', res);
+          this.error = true;
+          this.loading = false;
+          return;
+        }
+
+        this.chartOptions.series = lineChartData.map(item => ({
+          name: item.name,
+          data: item.data
+        }));
+
+        this.chartOptions.xaxis = {
+          categories: lineChartData[0]?.categories ?? []
+        };
+
         this.loading = false;
       },
-      error: () => {
+      error: (err) => {
+        console.error('API failed', err);
         this.error = true;
         this.loading = false;
       }
-    })
+    });
   }
-
-  }
-
-
+}

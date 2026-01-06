@@ -1,10 +1,13 @@
-<apx-chart
-  [series]="chartOptions.series"
-  [chart]="chartOptions.chart"
-  [labels]="chartOptions.labels"
-  [colors]="chartOptions.colors"
-  [dataLabels]="chartOptions.dataLabels"
-  [legend]="chartOptions.legend"
-  [stroke]="chartOptions.stroke"
-  [responsive]="chartOptions.responsive">
-</apx-chart>
+ <div id="chart">
+ @if (!loading && chartOptions.series.length) {
+  <apx-chart    
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [labels]="chartOptions.labels"
+    [dataLabels]="chartOptions.dataLabels"
+    [stroke]="chartOptions.stroke"
+    [legend]="chartOptions.legend"  
+    [responsive]="chartOptions.responsive">
+  </apx-chart>
+}  
+</div>

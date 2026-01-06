@@ -1,5 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
 <div id="chart">
+  @if (!loading && chartOptions.series.length) {
   <apx-chart
     [series]="chartOptions.series"
     [chart]="chartOptions.chart"
@@ -7,6 +8,8 @@
     [dataLabels]="chartOptions.dataLabels"
     [grid]="chartOptions.grid"
     [stroke]="chartOptions.stroke"
-    [title]="chartOptions.title"
-  ></apx-chart>
+    [title]="chartOptions.title">
+  </apx-chart>
+}
+
 </div>
