@@ -86,7 +86,6 @@ export class DonutChartComponent {
   loadChartData() {
   this.dashboardService.getPieChartData().subscribe({
     next: (pieChartData) => {
-
       if (
         !pieChartData ||
         !Array.isArray(pieChartData.datasets) ||
@@ -97,10 +96,8 @@ export class DonutChartComponent {
         this.loading = false;
         return;
       }
-
       this.chartOptions.series = pieChartData.datasets[0].data;
       this.chartOptions.labels = pieChartData.labels;
-
       this.loading = false;
     },
     error: (err) => {
